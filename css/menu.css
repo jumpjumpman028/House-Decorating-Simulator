@@ -1,0 +1,141 @@
+body{
+    background-color: rgb(102, 102, 102);
+    width: 100%;
+    max-width: 75%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+    margin: 0 auto;
+}
+.title{
+    
+    height: 100px;
+    display: flex;
+    flex-wrap: nowrap;
+
+}
+.icon{
+    width: 12%;
+    height: 100%;
+    background-color: orange;
+}
+.icon img{
+    height: 100%;
+    width: 100%;
+}
+
+.search-container {
+    width: 80%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 25px;
+    margin: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    padding: 8px;
+    flex: 1;
+}
+
+.search-container button {
+    background-color: #ffa32b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-container button:hover {
+    background-color: #3730a3;
+}
+
+.search-container button svg {
+    width: 16px;
+    height: 16px;
+}
+
+.cart-container button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #ffa32b;
+    margin-left: 15px;
+}
+.cart-container {
+    margin-top: 10px;
+    position: relative; /* 讓容器成為定位的參考 */
+    display: inline-block; /* 確保容器不會占據整行，保持圖片和數字的排布 */
+}
+
+#cart-btn img {
+    width: 40px; /* 可以根據需要調整圖片大小 */
+    height: auto; /* 保持比例 */
+    padding-left: 3px;
+    padding-top: 3px;
+}
+
+#cart-number {
+    position: absolute; /* 使用絕對定位來讓它浮動在圖片上 */
+    top: -5px; /* 調整數字的位置，根據需求可改變 */
+    right: -5px; /* 使數字靠近圖片的右上角 */
+    background-color: red; /* 設置背景顏色 */
+    color: white; /* 設置數字顏色 */
+    width: 30px; /* 設定數字標籤的寬度 */
+    height: 30px; /* 設定數字標籤的高度 */
+    border-radius: 50%; /* 使數字標籤圓形 */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 確保數字居中 */
+    font-size: 17px; /* 設定數字的大小 */
+}
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.left{
+    background-color: blue;
+    width: 25%;
+    height: 500px;
+}
+.right{
+    background-color: red;
+    width: 25%;
+    height: 500px;
+}
+.mid{
+    background-color: aqua;
+    width: 50%;
+    height: 500px;
+}
+.menu {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(207, 162, 162);
+    justify-content: flex-end;
+}
+
+.price, .name {
+    width: 10%;
+    height: 100%;
+    color: black; /* 確保文字可見 */
+    text-align: center;
+    font-size: 24px;
+    padding: 25px;
+}
+
+.price {
+    background-color: rgb(167, 129, 154);
+}
+
+.name {
+    background-color: rgb(182, 114, 159);
+}
