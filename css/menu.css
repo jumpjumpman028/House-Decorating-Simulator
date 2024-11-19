@@ -13,11 +13,12 @@ body{
 
 }
 .icon{
-    width: 12%;
-    height: 100%;
-    background-color: orange;
+    width: 17%;
+    height: 90%;
+    /* background-color: orange; */
 }
 .icon img{
+    padding-top: 4px;
     height: 100%;
     width: 100%;
 }
@@ -70,7 +71,8 @@ body{
     margin-left: 15px;
 }
 .cart-container {
-    margin-top: 10px;
+    margin-top: 21px;
+    margin-right: 20px;
     position: relative; /* 讓容器成為定位的參考 */
     display: inline-block; /* 確保容器不會占據整行，保持圖片和數字的排布 */
 }
@@ -96,25 +98,36 @@ body{
     align-items: center; /* 確保數字居中 */
     font-size: 17px; /* 設定數字的大小 */
 }
+
 .container{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
-.left{
-    background-color: blue;
-    width: 25%;
-    height: 500px;
-}
-.right{
+.result{
+    width: 80%;
+    height: 70px;
     background-color: red;
+}
+.sort{
+    width: 20%;
+    height: 70px;
+    background-color: bisque;
+}
+#product-list{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: aquamarine;
+}
+.product{
+    margin: 2px;
+    border-style: dotted;
     width: 25%;
-    height: 500px;
+    height: 350px;
+    background-color: #3730a3;
 }
-.mid{
-    background-color: aqua;
-    width: 50%;
-    height: 500px;
-}
+
 .menu {
     display: flex;
     width: 100%;
