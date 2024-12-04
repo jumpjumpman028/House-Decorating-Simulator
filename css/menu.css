@@ -100,34 +100,60 @@ body{
 }
 
 .container{
+    background-color: rgb(255, 224, 132);
+    border-radius: 40px;
     display: flex;
     flex-wrap: wrap;
 }
 .result{
-    width: 80%;
-    height: 70px;
-    background-color: red;
+    font-size: 1.3em;
+    padding-top: 30px;
+    padding-left: 30px;
+    align-items: center;
+    width: 70%;
+    height: auto;
+
 }
 .sort{
+    margin-left: 30px;
     width: 20%;
     height: 70px;
-    background-color: bisque;
+
 }
 #product-list{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     width: 100%;
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    background-color: aquamarine;
 }
-.product{
-    margin: 2px;
-    border-style: dotted;
-    width: 25%;
+.product {
+    text-decoration: none;
+    text-align: center;
+    margin: 0.5%;
+    width: 24%;
     height: 350px;
-    background-color: #3730a3;
+    background-color: #ffffff;
+    border-radius: 15px; /* 圓弧邊角，數值可調整 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* 立體陰影效果 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 添加動畫效果 */
 }
 
+.product:hover {
+    transform: translateY(-5px); /* 滑鼠懸停時微微浮起 */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3); /* 提升陰影強度 */
+}
+
+.product img{
+    margin-top: 5%;
+    max-height: 70%;
+    width: auto;
+}
+.product p{
+    text-align: left;
+    margin-left:10%;
+}
 .menu {
     display: flex;
     width: 100%;
@@ -145,13 +171,13 @@ body{
     padding: 25px;
 }
 
-.price {
+/* .price {
     background-color: rgb(167, 129, 154);
 }
 
 .name {
     background-color: rgb(182, 114, 159);
-}
+} */
 
 nav             { 
     margin-top: 10px;

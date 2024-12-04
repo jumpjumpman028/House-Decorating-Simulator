@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Decorating Simulator</title>
     <link rel="stylesheet" href="css/product.css">
+    <script type="text/javascript" src="js/product.js"></script>
 </head>
 <body>
     <div class="title">
@@ -26,16 +27,25 @@
         </div>
     </div>
     <div class="table">
-        <div class="pic"></div>
+        <div class="pic"><img src="img/hery.jpg"></div>
         <div class="info">
-            <div class="name">商品名</div>
-            <div class="price">價格</div>
-            <div class="discription">敘述</div>
-            
-            <div class="choose">
-                <div class="quantity">數量</div>
-                <div class="Addin">Add in</div>
-                <div class="AddInAndGoToCart">AddInAndGoToCart</div>
+            <div class="name">心碎小狗</div>
+            <div class="price">$一個女朋友</div>
+            <div class="discription">
+                尺寸:180*60<br>
+                滯銷<br>
+                希望有緣人能帶走
+            </div>
+            <div class="cartAction">
+                <div class="quantity">
+                    <button id="minus" >-</button>
+                    <input type="number" id="qty" class="input-box" value="1" min="1" max="10">
+                    <button id="plus">+</button>
+                  </div>
+                <div>
+                    <button class="addToCart" onclick="displayItemsCount()">Add to cart</button>
+                </div>
+    
             </div>
         </div>
         
