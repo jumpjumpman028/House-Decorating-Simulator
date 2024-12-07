@@ -63,13 +63,6 @@ body{
     height: 16px;
 }
 
-.cart-container button{
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-    background-color: #ffa32b;
-    margin-left: 15px;
-}
 .cart-container {
     margin-top: 21px;
     margin-right: 20px;
@@ -78,7 +71,7 @@ body{
 }
 
 #cart-btn img {
-    width: 40px; /* 可以根據需要調整圖片大小 */
+    width: 60px; /* 可以根據需要調整圖片大小 */
     height: auto; /* 保持比例 */
     padding-left: 3px;
     padding-top: 3px;
@@ -98,7 +91,6 @@ body{
     align-items: center; /* 確保數字居中 */
     font-size: 17px; /* 設定數字的大小 */
 }
-
 .table{
     width: 99%;
     height: 700px;
@@ -187,28 +179,28 @@ body{
 }
 
 .quantity button {
-background-color: #ffa32b;
-color: #fff;
-border: none;
-cursor: pointer;
-font-size: 20px;
-width: 30px;
-height: auto;
-text-align: center;
-transition: background-color 0.2s;
+    background-color: #ffa32b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 30px;
+    height: auto;
+    text-align: center;
+    transition: background-color 0.2s;
 }
 
 .quantity button:hover {
-background-color: #e18b1b;
+    background-color: #e18b1b;
 }
 
 .input-box {
-width: 40px;
-text-align: center;
-border: none;
-padding: 8px 10px;
-font-size: 16px;
-outline: none;
+    width: 40px;
+    text-align: center;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    outline: none;
 }
 .input-box::-webkit-inner-spin-button,
 .input-box::-webkit-outer-spin-button {
