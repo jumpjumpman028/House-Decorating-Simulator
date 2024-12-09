@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>House Decorating Simulator</title>
     <link rel="stylesheet" href="css/product.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="js/product.js"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
             <a id="cart-btn" href="cart.html">
                 <img src="img/shopping_cart.png">
             </a>
-            <div id="cart-number">14</div>
+            <div id="cart-number"></div>
         </div>
     </div>
     <div class="table">
@@ -43,7 +44,7 @@
                     <button id="plus">+</button>
                 </div>
                 <div>
-                    <button class="addToCart" onclick="displayItemsCount()">Add to cart</button>
+                    <button class="addToCart" id="addToCart">Add to cart</button>
                 </div>
     
             </div>
