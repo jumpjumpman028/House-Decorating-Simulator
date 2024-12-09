@@ -5,7 +5,6 @@ function update(){
     cart.innerHTML = cartNumber;
 }
 function addToCart(){
-    update();
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
     localStorage.setItem("cartnumber",parseInt(buyNumber));
@@ -15,11 +14,31 @@ function addToCart(){
 
 function minus(){
     let n = document.getElementById("qty").value;
-    if(parseInt(n)>0)document.getElementById("qty").value = parseInt(n)-1;
+    if(parseInt(n)>0){
+        document.getElementById("qty").value = parseInt(n)-1;
+        localStorage.setItem("cartnumber",parseInt(n)-1);
+    let total = document.getElementById("cart-number");
+    total.innerHTML = total.innerHTML-1;
+    }
+    update();
 }
 function plus(){
     let n = document.getElementById("qty").value;
     document.getElementById("qty").value = parseInt(n)+1;
+    localStorage.setItem("cartnumber",parseInt(n)+1);
+    let total = document.getElementById("cart-number");
+    total.innerHTML = parseInt(total.innerHTML)+1;
+    update();
+}
+
+function deleted(){
+    localStorage.removeItem("cartnumber");
+    let cart = document.getElementById("cart-number");
+    cart.innerHTML = cartNumber.innerHTML-parseInt(document.getElementById("qty").value);
+    document.getElementById("qty").value = "0";
+    let total = document.getElementById("cart-number");
+    total.innerHTML = cartNumber;
+    update();
 }
 
 function start(){
@@ -35,7 +54,7 @@ function start(){
     }
     document.getElementById("minus").addEventListener("click",minus,false);
     document.getElementById("plus").addEventListener("click",plus,false);
-    document.getElementById("addToCart").addEventListener("click",addToCart,false);
+    document.getElementById("delete").addEventListener("click",deleted,false);
 }
 
 window.addEventListener("load",start,false);

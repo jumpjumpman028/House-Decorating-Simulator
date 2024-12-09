@@ -12,6 +12,7 @@ function start(){
         cartNumber = parseInt(localStorage.getItem("cartnumber"));
         cart.innerHTML = cartNumber;
     }
-}
 
+
+}
 window.addEventListener("load",start,false);
