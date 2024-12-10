@@ -15,7 +15,6 @@ fetch('./json/products.json')
         furnitureItem.href = furniture.link;
         furnitureItem.innerHTML = `
           <img src="${furniture.image}" alt="${furniture.name}">
-          <img src="img/hery.jpg">
                 <div class="abbreviation">
                     <br>${furniture.name}<br><br>${furniture.price}NTD
                 </div>

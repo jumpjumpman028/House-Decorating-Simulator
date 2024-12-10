@@ -160,6 +160,7 @@ body{
     text-align: left;
     margin-left: 5%;
     margin-top: auto;
+    color:#3e3e3e;
 }
 .menu {
     display: flex;
@@ -169,22 +170,6 @@ body{
     justify-content: flex-end;
 }
 
-.price, .name {
-    width: 10%;
-    height: 100%;
-    color: black; /* 確保文字可見 */
-    text-align: center;
-    font-size: 24px;
-    padding: 25px;
-}
-
-/* .price {
-    background-color: rgb(167, 129, 154);
-}
-
-.name {
-    background-color: rgb(182, 114, 159);
-} */
 
 nav             { 
     margin-top: 10px;
