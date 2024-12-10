@@ -19,7 +19,6 @@ fetch('./json/test.json')
             <h2>${sofa.name}</h2>
             <p>價格: ${sofa.price}</p>
             <p>尺寸: ${sofa.size}</p>
-            <a href="${sofa.link}" target="_blank">查看詳情</a>
           </div>
         `;
   
