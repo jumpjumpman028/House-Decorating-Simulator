@@ -1,4 +1,4 @@
-fetch('./json/test.json')
+fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -9,27 +9,30 @@ fetch('./json/test.json')
     const list = document.getElementById("product-list");
     list.innerHTML = " ";
 
-    data.forEach(sofa => {
-        const sofaItem = document.createElement('a');
-        sofaItem.className = 'product';
-        sofaItem.href = sofa.link;
-        sofaItem.innerHTML = `
-          <img src="${sofa.image}" alt="${sofa.name}">
-          <div>
-            <h2>${sofa.name}</h2>
-            <p>價格: ${sofa.price}</p>
-            <p>尺寸: ${sofa.size}</p>
-          </div>
+    data.forEach(furniture => {
+        const furnitureItem = document.createElement('a');
+        furnitureItem.className = 'product';
+        furnitureItem.href = furniture.link;
+        furnitureItem.innerHTML = `
+          <img src="${furniture.image}" alt="${furniture.name}">
+          <img src="img/hery.jpg">
+                <div class="abbreviation">
+                    <br>${furniture.name}<br><br>${furniture.price}NTD
+                </div>
         `;
-  
         // 將每個沙發資訊加入容器中
-        list.appendChild(sofaItem);
+        list.appendChild(furnitureItem);
+
+        //store to local storage
+        let key = "Product-"+ furniture.name;
+        let value = JSON.stringify(furniture);
+        localStorage.setItem(key,value);
+
       });
     })
   .catch(error => {
     console.error('發生錯誤:', error);
   });
-
 
 
 /*

@@ -142,27 +142,8 @@ body{
     font-size: 1.2em;
 }
 .quantity {
-    display: flex;
-    border: 2px solid #ffa32b;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.quantity button {
-    background-color: #ffa32b;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    width: 30px;
-    height: auto;
-    text-align: center;
-    transition: background-color 0.2s;
-}
-
-.quantity button:hover {
-    background-color: #e18b1b;
+    margin-top: 4px;
+    font-size: 1.2em;
 }
 
 .input-box {
