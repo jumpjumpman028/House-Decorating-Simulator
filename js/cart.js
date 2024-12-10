@@ -1,9 +1,11 @@
 var cartNumber  ;
 function update(){
     let cart = document.getElementById("cart-number");
-    cartNumber = parseInt(localStorage.getItem("cartnumber"));
+    if(localStorage.getItem("cartnumber") == null) cartNumber = 0;
+    else cartNumber = parseInt(localStorage.getItem("cartnumber"));
     cart.innerHTML = cartNumber;
 }
+
 function addToCart(){
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
@@ -42,6 +44,7 @@ function deleted(){
 }
 
 function start(){
+    update();
     let cart = document.getElementById("cart-number");
     if (localStorage.getItem("cartnumber") !== null) {
         update();
