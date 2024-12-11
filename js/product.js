@@ -12,7 +12,7 @@ function addToCart() {
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
     localStorage.setItem("cartnumber", parseInt(buyNumber));
-    let nameInput = document.getElementById("name").value;
+    let nameInput = document.getElementById("name");
     let namea = "Product-" + nameInput;
     let value = localStorage.getItem(namea);
     console.log(value);
