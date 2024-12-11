@@ -12,12 +12,14 @@ function addToCart() {
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
     localStorage.setItem("cartnumber", parseInt(buyNumber));
-    let nameInput = document.getElementById("name");
+    let nameInput = document.getElementById("name").innerHTML;
+    console.log(nameInput);
     let namea = "Product-" + nameInput;
+    console.log(namea);
     let value = localStorage.getItem(namea);
     console.log(value);
     let valuese = JSON.parse(value); 
-    console.log(value);
+    console.log(valuese);
     valuese.amount = (valuese.amount || 0) + buyNumber;
     console.log(valuese.amount);
     let totalvalue = JSON.stringify(valuese);
