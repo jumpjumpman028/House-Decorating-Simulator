@@ -1,5 +1,5 @@
 var cartNumber = parseInt(localStorage.getItem("cartnumber") || 0); // 初始化 cartnumber，從 localStorage 獲取，若無則設為 0
-var sum = parseInt(0);
+var sum = 0;
 
 function update() {
     let cart = document.getElementById("cart-number");
@@ -14,8 +14,10 @@ function update() {
         }
     }
 
-    cart.innerHTML = sum; // 更新購物車顯示
-    localStorage.setItem("cartnumber", sum); // 更新 LocalStorage 中的 cartnumber
+    // 更新購物車顯示
+    cart.innerHTML = sum;
+    // 同步更新 localStorage 中的 cartnumber
+    localStorage.setItem("cartnumber", sum);
     cartNumber = sum; // 更新本地變數
 }
 
