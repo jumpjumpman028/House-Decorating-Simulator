@@ -14,7 +14,7 @@ function addToCart() {
     localStorage.setItem("cartnumber", parseInt(buyNumber));
     namea = document.getElementById("name");
     value = JSON.parse(localStorage.getItem(`Product-${namea}`));
-    value.amount = value.amount + buyNumber;
+    value.amount += buyNumber;
     totalvalue = JSON.stringify(value);
     localStorage.setItem(`Product-${namea}`, totalvalue);
     update();
