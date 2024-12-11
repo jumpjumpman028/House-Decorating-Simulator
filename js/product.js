@@ -1,32 +1,38 @@
-var cartNumber = parseInt(0);
+var cartNumber = parseInt(localStorage.getItem("cartnumber") || 0); // 初始化 cartnumber，從 localStorage 獲取，若無則設為 0
 var sum = parseInt(0);
-function update(){
+
+function update() {
     let cart = document.getElementById("cart-number");
-    sum = parseInt(0);
-    for(var i=0;i<localStorage.length;i++){
-        
-        if(localStorage.key(i).substring(0,7)=="Product"){
+    sum = 0;
+
+    // 遍歷 LocalStorage 計算所有商品的數量總和
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).substring(0, 7) === "Product") {
             let key = localStorage.key(i);
             let obj = JSON.parse(localStorage.getItem(key));
-            sum = sum + parseInt(obj.amount);
+            sum += parseInt(obj.amount || 0, 10); // 累加每個商品的數量
         }
     }
 
-    cart.innerHTML = sum;
-
+    cart.innerHTML = sum; // 更新購物車顯示
+    localStorage.setItem("cartnumber", sum); // 更新 LocalStorage 中的 cartnumber
+    cartNumber = sum; // 更新本地變數
 }
 
 function addToCart() {
-    let buyNumber = parseInt(document.getElementById("qty").value);
+    let buyNumber = parseInt(document.getElementById("qty").value, 10);
     let nameInput = document.getElementById("name").innerHTML;
     let namea = "Product-" + nameInput;
+
     let value = localStorage.getItem(namea);
-    let valuese = JSON.parse(value); 
+    let valuese = value ? JSON.parse(value) : { amount: 0 };
+
     valuese.amount = (valuese.amount || 0) + buyNumber;
-    let totalvalue = JSON.stringify(valuese);
-    localStorage.setItem(namea, totalvalue);
-    console.log("数据已更新:", localStorage.getItem(namea));
-    update();
+    localStorage.setItem(namea, JSON.stringify(valuese));
+
+    console.log("商品數量已更新:", localStorage.getItem(namea));
+
+    update(); // 更新購物車顯示並同步 LocalStorage 中的 cartnumber
 }
 
 function minus() {
@@ -40,7 +46,9 @@ function plus() {
 }
 
 function start() {
-    update();
+    update(); // 頁面載入時更新購物車數量
+
+    // 綁定按鈕事件
     document.getElementById("minus").addEventListener("click", minus, false);
     document.getElementById("plus").addEventListener("click", plus, false);
     document.getElementById("addToCart").addEventListener("click", addToCart, false);
@@ -73,12 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const nameElement = document.querySelector(".name");
     if (nameElement) {
         nameElement.id = "name"; // 新增 id 屬性
-    }  
+    }
     nameElement.textContent = product.name;
-    
+
     // 動態填充頁面內容
     document.querySelector(".pic img").src = product.image;
-    //document.querySelector(".name").textContent = product.name;
     document.querySelector(".price").textContent = `${product.price} 元`;
     document.querySelector(".discription").innerHTML = `
         分類:${product.category}<br>
@@ -86,8 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ${product.description || "暫無描述"}
     `;
 
-
-    // 添加購物車功能
+    // 監聽加入購物車事件
     const addToCartButton = document.getElementById("addToCart");
     addToCartButton.addEventListener("click", () => {
         alert(`${product.name} 已加入購物車！`);
