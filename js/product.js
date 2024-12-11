@@ -12,14 +12,17 @@ function addToCart() {
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
     localStorage.setItem("cartnumber", parseInt(buyNumber));
-    namea = document.getElementById("name");
-    value = JSON.parse(localStorage.getItem(`Product-${namea}`));
+    let nameInput = document.getElementById("name").value;
+    let namea = "Product-" + nameInput;
+    let value = localStorage.getItem(namea);
     console.log(value);
-    value.amount += buyNumber;
-    console.log(value.amount);
-    totalvalue = JSON.stringify(value);
-    console.log(totalvalue);
-    localStorage.setItem(`Product-${namea}`, totalvalue);
+    let valuese = JSON.parse(value); 
+    console.log(value);
+    valuese.amount = (valuese.amount || 0) + buyNumber;
+    console.log(valuese.amount);
+    let totalvalue = JSON.stringify(valuese);
+    localStorage.setItem(namea, totalvalue);
+    console.log("数据已更新:", localStorage.getItem(namea));
     update();
 }
 
