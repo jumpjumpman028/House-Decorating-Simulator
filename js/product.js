@@ -1,4 +1,4 @@
-var cartNumber;
+var cartNumber = parseInt(0);
 var sum = parseInt(0);
 function update(){
     let cart = document.getElementById("cart-number");
@@ -11,26 +11,18 @@ function update(){
             sum = sum + parseInt(obj.amount);
         }
     }
+
     cart.innerHTML = sum;
 
 }
 
 function addToCart() {
-    update();
-    let temp = new Object(); /*預期可以引用商品的json作為物件用 amount 的屬性計算我購買了幾個此商品*/
     let buyNumber = parseInt(document.getElementById("qty").value);
-    cartNumber= cartNumber+buyNumber;
-    localStorage.setItem("cartnumber", parseInt(buyNumber));
     let nameInput = document.getElementById("name").innerHTML;
-    console.log(nameInput);
     let namea = "Product-" + nameInput;
-    console.log(namea);
     let value = localStorage.getItem(namea);
-    console.log(value);
     let valuese = JSON.parse(value); 
-    console.log(valuese);
     valuese.amount = (valuese.amount || 0) + buyNumber;
-    console.log(valuese.amount);
     let totalvalue = JSON.stringify(valuese);
     localStorage.setItem(namea, totalvalue);
     console.log("数据已更新:", localStorage.getItem(namea));
@@ -49,16 +41,6 @@ function plus() {
 
 function start() {
     update();
-    let cart = document.getElementById("cart-number");
-    if (localStorage.getItem("cartnumber") !== null) {
-        update();
-        cart.innerHTML = cartNumber;
-    }
-    else {
-        localStorage.setItem("cartnumber", parseInt(0));
-        update();
-        cart.innerHTML = cartNumber;
-    }
     document.getElementById("minus").addEventListener("click", minus, false);
     document.getElementById("plus").addEventListener("click", plus, false);
     document.getElementById("addToCart").addEventListener("click", addToCart, false);
