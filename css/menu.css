@@ -162,6 +162,9 @@ body{
     margin-top: auto;
     color:#3e3e3e;
 }
+.price{
+    color: #ff960c;
+}
 .menu {
     display: flex;
     width: 100%;
@@ -169,6 +172,7 @@ body{
     background-color: rgb(207, 162, 162);
     justify-content: flex-end;
 }
+
 
 
 nav             { 

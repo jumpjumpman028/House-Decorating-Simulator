@@ -16,7 +16,7 @@ fetch('./json/products.json')
         furnitureItem.innerHTML = `
           <img src="${furniture.image}" alt="${furniture.name}">
                 <div class="abbreviation">
-                    <br>${furniture.name}<br><br>${furniture.price}NTD
+                    ${furniture.name}<br><div class="price">${furniture.price}NTD</div>
                 </div>
         `;
         // 將每個沙發資訊加入容器中
