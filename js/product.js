@@ -12,6 +12,11 @@ function addToCart() {
     let buyNumber = parseInt(document.getElementById("qty").value);
     buyNumber = buyNumber + cartNumber;
     localStorage.setItem("cartnumber", parseInt(buyNumber));
+    namea = document.getElementById("name");
+    value = JSON.parse(localStorage.getItem(`Product-${namea}`));
+    value.amount = value.amount + buyNumber;
+    totalvalue = JSON.stringify(value);
+    localStorage.setItem(`Product-${namea}`, totalvalue);
     update();
 }
 
@@ -69,11 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 動態填充頁面內容
     document.querySelector(".pic img").src = product.image;
     document.querySelector(".name").textContent = product.name;
-    document.querySelector(".price").textContent = product.price;
+    document.querySelector(".price").textContent = `${product.price} 元`;
     document.querySelector(".discription").innerHTML = `
-        尺寸: ${product.size}<br>
+        分類:${product.category}<br>
+        尺寸: 寬度 ${product.width}，深度 ${product.depth}，高度 ${product.height}<br>
         ${product.description || "暫無描述"}
     `;
+
 
     // 添加購物車功能
     const addToCartButton = document.getElementById("addToCart");
