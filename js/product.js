@@ -1,4 +1,4 @@
-var cartNumber = parseInt(localStorage.getItem("cartnumber") || 0); // 初始化 cartnumber，從 localStorage 獲取，若無則設為 0
+var cartNumber = parseInt(localStorage.getItem("cartnumber")); // 初始化 cartnumber，從 localStorage 獲取，若無則設為 0
 var sum = 0;
 
 function update() {
