@@ -10,7 +10,7 @@ function addToCart() {
     update();
     let temp = new Object(); /*預期可以引用商品的json作為物件用 amount 的屬性計算我購買了幾個此商品*/
     let buyNumber = parseInt(document.getElementById("qty").value);
-    cartNumber+=buyNumber;
+    cartNumber= cartNumber+buyNumber;
     localStorage.setItem("cartnumber", parseInt(buyNumber));
     let nameInput = document.getElementById("name").innerHTML;
     console.log(nameInput);
