@@ -12,7 +12,7 @@ fetch('./json/products.json')
     data.forEach(furniture => {
         const furnitureItem = document.createElement('a');
         furnitureItem.className = 'product';
-        furnitureItem.href = furniture.link;
+        furnitureItem.href = `product.html?product=${furniture.name}`;
         furnitureItem.innerHTML = `
           <img src="${furniture.image}" alt="${furniture.name}">
                 <div class="abbreviation">
