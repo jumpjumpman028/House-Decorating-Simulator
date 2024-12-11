@@ -79,9 +79,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // 將 JSON 資料轉換為物件
     const product = JSON.parse(productData);
 
+    const nameElement = document.querySelector(".name");
+    if (nameElement) {
+        nameElement.id = "name"; // 新增 id 屬性
+    }  
+    nameElement.textContent = product.name;
+    
     // 動態填充頁面內容
     document.querySelector(".pic img").src = product.image;
-    document.querySelector(".name").textContent = product.name;
+    //document.querySelector(".name").textContent = product.name;
     document.querySelector(".price").textContent = `${product.price} 元`;
     document.querySelector(".discription").innerHTML = `
         分類:${product.category}<br>
