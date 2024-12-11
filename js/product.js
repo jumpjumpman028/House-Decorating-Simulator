@@ -1,7 +1,8 @@
 var cartNumber;
+var sum = parseInt(0);
 function update(){
     let cart = document.getElementById("cart-number");
-    var sum = parseInt(0);
+    sum = parseInt(0);
     for(var i=0;i<localStorage.length;i++){
         
         if(localStorage.key(i).substring(0,7)=="Product"){
