@@ -1,9 +1,17 @@
 var cartNumber;
-function update() {
+function update(){
     let cart = document.getElementById("cart-number");
-    if (localStorage.getItem("cartnumber") == null) cartNumber = 0;
-    else cartNumber = parseInt(localStorage.getItem("cartnumber"));
-    cart.innerHTML = cartNumber;
+
+    for(var i=0;i<localStorage.length;i++){
+        let sum = parseInt(0);
+        if(localStorage.key(i).substring(0,7)=="Product"){
+            let key = localStorage.key(i);
+            let obj = JSON.parse(localStorage.getItem(key));
+            sum += parseInt(obj.amount);
+        }
+    }
+    cart.innerHTML = sum;
+
 }
 
 function addToCart() {
