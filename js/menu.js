@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const typingInput = document.getElementById("typing");
   const pricelow=document.getElementById("priceValueHead");
   const pricehigh=document.getElementById("priceValueTail");
+  const resetButton = document.getElementById("reset");
+
 
   // 點擊選單按鈕，切換側邊欄顯示/隱藏
   menuButton.addEventListener("click", () => {
