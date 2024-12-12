@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const typingInput = document.getElementById("typing");
   const pricelow=document.getElementById("priceValueHead");
   const pricehigh=document.getElementById("priceValueTail");
-  const resetButton = document.getElementById("reset");
-
 
   // 點擊選單按鈕，切換側邊欄顯示/隱藏
   menuButton.addEventListener("click", () => {
@@ -124,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
           // 將每個XX資訊加入容器中
           list.appendChild(furnitureItem);
-            }
+          }
           }
           
         });
@@ -136,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchInput.addEventListener("click", () => {
     const searchKeyword = typingInput.value.toLowerCase();
-    document.getElementById("result").innerHTML=`"${searchKeyword}"的搜尋結果`;
     fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
@@ -167,13 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
   .catch(error => {
     console.error('發生錯誤:', error);
   });
-  });
-
-  resetButton.addEventListener("click", () => {
-    // 重置分類和價格輸入框
-    categorySelect.value = "all";
-    priceValueHead.value = 0;
-    priceValueTail.value = 100000;
   });
 
   
