@@ -1,4 +1,5 @@
-fetch('./json/products.json')
+function dofetch(get){
+  fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -23,15 +24,20 @@ fetch('./json/products.json')
         list.appendChild(furnitureItem);
 
         //store to local storage
-        let key = "Product-"+ furniture.name;
-        let value = JSON.stringify(furniture);
-        localStorage.setItem(key,value);
-
+        if(get==0){
+          let key = "Product-"+ furniture.name;
+          let value = JSON.stringify(furniture);
+          localStorage.setItem(key,value);
+        }
+        
       });
     })
   .catch(error => {
     console.error('發生錯誤:', error);
   });
+}
+
+
 
 
 /*
@@ -42,8 +48,11 @@ fetch('./json/products.json')
 var cartNumber  ;
 function update(){
     let cart = document.getElementById("cart-number");
-    if(localStorage.getItem("cartnumber") == null) cartNumber = 0;
+    if(localStorage.getItem("cartnumber") == null){
+      cartNumber = 0;
+    }
     else cartNumber = parseInt(localStorage.getItem("cartnumber"));
+    dofetch(cartNumber);
     cart.innerHTML = cartNumber;
 }
 
