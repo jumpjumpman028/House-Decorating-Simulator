@@ -134,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchInput.addEventListener("click", () => {
     const searchKeyword = typingInput.value.toLowerCase();
+    document.getElementById("result")=`"${searchKeyword}"的搜尋結果`;
     fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
@@ -164,6 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
   .catch(error => {
     console.error('發生錯誤:', error);
   });
+  });
+
+  resetButton.addEventListener("click", () => {
+    // 重置分類和價格輸入框
+    categorySelect.value = "all";
+    priceValueHead.value = 0;
+    priceValueTail.value = 100000;
   });
 
   
