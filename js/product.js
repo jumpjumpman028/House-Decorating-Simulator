@@ -92,6 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".discription").innerHTML = `
         分類:${product.category}<br>
         尺寸: 寬度 ${product.width}，深度 ${product.depth}，高度 ${product.height}<br>
+        連結: ${product.link}<br>
         ${product.description || "暫無描述"}
     `;
 

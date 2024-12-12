@@ -9,11 +9,43 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 <body>
+
+    <!-- 選單按鈕 -->
+  <div id="menuButton">☰</div>
+
+  <!-- 側邊選單 -->
+  <div id="sidebar">
+    <br><br><br>
+    <h3>篩選條件</h3>
+    <label for="categorySelect" class="categorySelecttitle">分類：</label>
+    <select id="categorySelect" class="select">
+      <option value="all">所有分類</option>
+      <option value="wardrobe">衣櫃</option>
+      <option value="sideboard">餐櫃</option>
+      <option value="diningtable">餐桌</option>
+      <option value="table">桌子</option>
+      <option value="cabinet">櫃子</option>
+      <option value="box">活動框</option>
+      <option value="pillow">枕頭</option>
+      <option value="sofa">沙發</option>
+      <option value="bedstead">床架</option>
+      <option value="bed_frame">床框</option>
+    </select>
+    
+    <br>
+    <div class="pricetitle">價格:</div>
+    <span >從</span><input id="priceValueHead" class="priceinput"value="0">
+    <span >到</span><input id="priceValueTail" class="priceinput"value="100000">
+    
+    <button class="apply" id="apply">套用</button>
+   
+  </div>
+
     <div class="title">
         <div class="icon"><a href="index.html" title="GoToMenu"><img src="img/icon.png" ></a></div>
         <div class="search-container">
-            <input type="text" placeholder="請輸入你想尋找的商品">
-            <button>
+            <input type="text" placeholder="請輸入你想尋找的商品" id="typing">
+            <button id="search">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m1.5-3.15a7.5 7.5 0 11-15 0 7.5 7.5 0 0115 0z" />
                 </svg>
@@ -31,15 +63,7 @@
 
     
     <div class="container">
-        <div class="result">"沙發"的搜尋結果</div>
-        <div class="sort">
-            <nav>價格
-                <ul>
-                   <li>以價格低到高排序</li>
-                   <li>以價格高到低排序</li>
-                </ul>
-             </nav>
-        </div>
+        <div class="result">""的搜尋結果</div>
         <div id="product-list">
             <!-- 暫時作為連結用 -->
             <a href="product.html" class="product"></a> 
