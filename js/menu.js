@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   searchInput.addEventListener("click", () => {
     const searchKeyword = typingInput.value.toLowerCase();
-    document.getElementById("result")=`"${searchKeyword}"的搜尋結果`;
+    document.getElementById("result").innerHTML=`"${searchKeyword}"的搜尋結果`;
     fetch('./json/products.json')
   .then(response => {
     if (!response.ok) {
