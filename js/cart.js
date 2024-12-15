@@ -16,7 +16,7 @@ function update() {
                 const cartItem  = document.createElement('div');
                 cartItem.className = 'product';
                 let priceofthatxie=parseInt(obj.amount)*parseInt(obj.price);
-                totalprice+=priceofthatxie;
+                totalprice+=parseInt(priceofthatxie);
                 cartItem.innerHTML = `
                     <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
                     <div class="info">
