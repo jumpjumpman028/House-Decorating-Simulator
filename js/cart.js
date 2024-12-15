@@ -1,6 +1,7 @@
 var cartNumber  ;
 var totalprice=0;
 function update() {
+    totalprice=0;
     let cart = document.getElementById("cart-number");
     sum = 0;
     const list = document.getElementById("cart-list");
