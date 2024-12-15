@@ -32,6 +32,7 @@ function update() {
             
         }
     }
+    document.getElementById("summary").innerHTML = `總計金額:${totalprice}<button class="deleteall" id="deleteall">delete all</button>`;
 
     // 更新購物車顯示
     cart.innerHTML = sum;
