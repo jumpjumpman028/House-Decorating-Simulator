@@ -24,7 +24,7 @@ function update() {
                         <div class="name">${obj.name}</div>
                         <div class="quantity" id="qty">${obj.amount}</div>
                         <div class="price">$${priceofthatxie}</div>     
-                        <button class="delete" id="delete">Delete</button>
+                        <button class="delete" onclick="deleteItem('${key}')">Delete</button>
                     </div>`;
                 // 將每個沙發資訊加入容器中
                 list.appendChild(cartItem);
@@ -52,10 +52,18 @@ function deleted(){
     update();
 }
     */
-function deleted(e){
-    e.amount -= 1;
-    update();
+function deleteItem(key) {
+    // 確認是否存在該 key
+    const obj = JSON.parse(localStorage.getItem(key));
+    if (obj) {
+        obj.amount -= 1; // 更新數量為 0（如果需要直接移除，也可以使用 localStorage.removeItem）
+        localStorage.setItem(key, JSON.stringify(obj));
+        location.reload(); // 重新載入頁面來更新列表
+    } else {
+        console.error(`Key '${key}' not found in localStorage.`);
+    }
 }
+
 function start(){
     update();
     let cart = document.getElementById("cart-number");
