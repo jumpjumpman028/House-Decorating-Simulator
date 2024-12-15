@@ -37,7 +37,7 @@ function update() {
     // 同步更新 localStorage 中的 cartnumber
     localStorage.setItem("cartnumber", sum);
     cartNumber = sum; // 更新本地變數
-    document.getElementById("summary").innerHTML =`總計金額:${totalprice}`;
+    document.getElementById("summary").innerHTML =`總計金額:$${totalprice}<button class="deleteall" id="deleteall">delete all</button>`;
 }
 /*
 function deleted(){
@@ -69,6 +69,11 @@ function start(){
 
     document.getElementById("delete").addEventListener("click",deleted,false);
 }
+
+document.getElementById("deleteall").addEventListener("click", function(){
+    localStorage.clear();
+    window.location.reload();
+}, false);
 
 window.addEventListener("load",start,false);
 
