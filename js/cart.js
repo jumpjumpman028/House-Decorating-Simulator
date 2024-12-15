@@ -32,8 +32,6 @@ function update() {
             
         }
     }
-    let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}</div>`;
-    list.appendChild(trytodeleteall);
 
     // 更新購物車顯示
     cart.innerHTML = sum;
