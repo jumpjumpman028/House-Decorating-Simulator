@@ -11,19 +11,21 @@ function update() {
             let obj = JSON.parse(localStorage.getItem(key));
             sum += parseInt(obj.amount || 0, 10); // 累加每個商品的數量
             
-
-            const cartItem  = document.createElement('div');
-            cartItem.className = 'product';
-            cartItem.innerHTML = `
-                <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
-                <div class="info">
-                    <div class="name">${obj.name}</div>
-                    <div class="quantity" id="qty">${obj.amount}</div>
-                    <div class="price">$${obj.price}</div>     
-                    <button class="delete" id="delete">Delete</button>
-                </div>`;
-            // 將每個沙發資訊加入容器中
-            list.appendChild(cartItem);
+            if(obj.amount != 0){
+                const cartItem  = document.createElement('div');
+                cartItem.className = 'product';
+                cartItem.innerHTML = `
+                    <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
+                    <div class="info">
+                        <div class="name">${obj.name}</div>
+                        <div class="quantity" id="qty">${obj.amount}</div>
+                        <div class="price">$${obj.price}</div>     
+                        <button class="delete" id="delete">Delete</button>
+                    </div>`;
+                // 將每個沙發資訊加入容器中
+                list.appendChild(cartItem);
+            }
+            
         }
     }
 
