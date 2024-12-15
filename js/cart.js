@@ -77,7 +77,6 @@ function start(){
         cart.innerHTML = cartNumber;
     }
 
-    document.getElementById("delete").addEventListener("click",deleted,false);
     document.getElementById("deleteall").addEventListener("click", function(){
     localStorage.clear();
     localStorage.setItem("cartnumber",parseInt(0));

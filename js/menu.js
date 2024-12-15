@@ -89,15 +89,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   applyButton.addEventListener("click", () => {
+
     const selectedCategory = categorySelect.value;
+      const options = categorySelect.options; // 抓取所有 <option>
+
     const priceLowValue = parseInt(pricelow.value);
     const priceHighValue = parseInt(pricehigh.value);
-    document.getElementById("result").innerHTML=`從分類:${categorySelect.value.innerHTML}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;
     if(priceHighValue<priceLowValue){
       alert("請輸入正確的範圍");
       return;
     }
 
+    for (let i = 0; i < options.length; i++) {
+      const option = options[i];
+      if(option.value==selectedCategory){
+        document.getElementById("result").innerHTML +=`從分類:${option.text}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;  // 顯示文字與值
+      }
+    }
+    
     fetch('./json/products.json')
     .then(response => {
       if (!response.ok) {
