@@ -1,4 +1,5 @@
 var cartNumber  ;
+var totalprice;
 function update() {
     let cart = document.getElementById("cart-number");
     sum = 0;
@@ -14,12 +15,14 @@ function update() {
             if(obj.amount != 0){
                 const cartItem  = document.createElement('div');
                 cartItem.className = 'product';
+                let priceofthatxie=parseInt(obj.amount)*parseInt(obj.price);
+                totalprice+=priceofthatxie;
                 cartItem.innerHTML = `
                     <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
                     <div class="info">
                         <div class="name">${obj.name}</div>
                         <div class="quantity" id="qty">${obj.amount}</div>
-                        <div class="price">$${obj.price}</div>     
+                        <div class="price">$${priceofthatxie}</div>     
                         <button class="delete" id="delete">Delete</button>
                     </div>`;
                 // 將每個沙發資訊加入容器中
@@ -34,6 +37,7 @@ function update() {
     // 同步更新 localStorage 中的 cartnumber
     localStorage.setItem("cartnumber", sum);
     cartNumber = sum; // 更新本地變數
+    document.getElementById("summary").innerHTML =`總計金額:${totalprice}`;
 }
 
 function deleted(){

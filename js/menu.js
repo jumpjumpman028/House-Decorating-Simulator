@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       list.innerHTML = " ";
   
       data.forEach(furniture => {
-        if(selectedCategory==furniture.category){
+        if(selectedCategory==furniture.category||selectedCategory=="all"){
           if(furniture.price>=priceLowValue && furniture.price<=priceHighValue){
           const furnitureItem = document.createElement('a');
           furnitureItem.className = 'product';
@@ -133,6 +133,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   searchInput.addEventListener("click", () => {
+    let you_want=document.getElementById("typing").value;
+    document.getElementById("result").innerHTML=`"${you_want}"的搜尋結果`;
     const searchKeyword = typingInput.value.toLowerCase();
     fetch('./json/products.json')
   .then(response => {
