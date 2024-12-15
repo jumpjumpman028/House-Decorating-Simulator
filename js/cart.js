@@ -2,17 +2,17 @@ var cartNumber  ;
 function update() {
     let cart = document.getElementById("cart-number");
     sum = 0;
-
+    const list = document.getElementById("cart-list");
+    list.innerHTML = " ";
     // 遍歷 LocalStorage 計算所有商品的數量總和
     for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i).substring(0, 7) === "Product") {
             let key = localStorage.key(i);
             let obj = JSON.parse(localStorage.getItem(key));
             sum += parseInt(obj.amount || 0, 10); // 累加每個商品的數量
-            const list = document.getElementById("cart-list");
-            list.innerHTML = " ";
+            
 
-            const cartItem = document.createElement('div');
+            const cartItem  = document.createElement('div');
             cartItem.className = 'product';
             cartItem.innerHTML = `
                 <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
