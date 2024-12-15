@@ -27,6 +27,8 @@ function update() {
                     </div>`;
                 // 將每個沙發資訊加入容器中
                 list.appendChild(cartItem);
+                let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}<button class="deleteall" id="deleteall">delete all</button></div>`;
+                list.appendChild(trytodeleteall);
             }
             
         }
@@ -37,7 +39,6 @@ function update() {
     // 同步更新 localStorage 中的 cartnumber
     localStorage.setItem("cartnumber", sum);
     cartNumber = sum; // 更新本地變數
-    document.getElementById("summary").innerHTML =`總計金額:$${totalprice}<button class="deleteall" id="deleteall">delete all</button>`;
 }
 /*
 function deleted(){
