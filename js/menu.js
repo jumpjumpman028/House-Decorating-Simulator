@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     for (let i = 0; i < options.length; i++) {
       const option = options[i];
       if(option.value==selectedCategory){
-        document.getElementById("result").innerHTML +=`從分類:${option.text}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;  // 顯示文字與值
+        document.getElementById("result").innerHTML =`從分類:${option.text}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;  // 顯示文字與值
       }
     }
     
