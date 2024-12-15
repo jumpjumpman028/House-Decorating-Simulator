@@ -27,7 +27,7 @@ function update() {
                     </div>`;
                 // 將每個沙發資訊加入容器中
                 list.appendChild(cartItem);
-                let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}<button class="deleteall" id="deleteall">delete all</button></div>`;
+                let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}</div>`;
                 list.appendChild(trytodeleteall);
             }
             
