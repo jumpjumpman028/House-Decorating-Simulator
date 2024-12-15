@@ -70,9 +70,7 @@ function start(){
     document.getElementById("delete").addEventListener("click",deleted,false);
     document.getElementById("deleteall").addEventListener("click", function(){
     localStorage.clear();
-    let cart = document.getElementById("cart-number");
-    cart.innerHTML = 0;
-    let total = document.getElementById("cart-number");
+    localStorage.setItem("cartnumber",parseInt(0));
     update();
     }, false);
 }
