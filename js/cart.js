@@ -27,12 +27,13 @@ function update() {
                     </div>`;
                 // 將每個沙發資訊加入容器中
                 list.appendChild(cartItem);
-                let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}</div>`;
-                list.appendChild(trytodeleteall);
+                
             }
             
         }
     }
+    let trytodeleteall=`<div class="summary" id="summary">總計金額:$${totalprice}</div>`;
+    list.appendChild(trytodeleteall);
 
     // 更新購物車顯示
     cart.innerHTML = sum;
@@ -69,12 +70,16 @@ function start(){
     }
 
     document.getElementById("delete").addEventListener("click",deleted,false);
+    document.getElementById("deleteall").addEventListener("click", function(){
+    localStorage.clear();
+    let cart = document.getElementById("cart-number");
+    cart.innerHTML = 0;
+    let total = document.getElementById("cart-number");
+    update();
+    }, false);
 }
 
-document.getElementById("deleteall").addEventListener("click", function(){
-    localStorage.clear();
-    window.location.reload();
-}, false);
+
 
 window.addEventListener("load",start,false);
 
