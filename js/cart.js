@@ -1,5 +1,5 @@
 var cartNumber  ;
-var totalprice;
+var totalprice=0;
 function update() {
     let cart = document.getElementById("cart-number");
     sum = 0;
@@ -39,8 +39,9 @@ function update() {
     cartNumber = sum; // 更新本地變數
     document.getElementById("summary").innerHTML =`總計金額:${totalprice}`;
 }
-
+/*
 function deleted(){
+    let key = "Product"+document.getElementById("name").innerHTML;
     localStorage.removeItem("cartnumber");
     let cart = document.getElementById("cart-number");
     cart.innerHTML = cartNumber.innerHTML-parseInt(document.getElementById("qty").value);
@@ -48,7 +49,11 @@ function deleted(){
     total.innerHTML = cartNumber;
     update();
 }
-
+    */
+function deleted(e){
+    e.amount -= 1;
+    update();
+}
 function start(){
     update();
     let cart = document.getElementById("cart-number");
