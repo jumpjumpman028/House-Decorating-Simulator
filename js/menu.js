@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedCategory = categorySelect.value;
     const priceLowValue = parseInt(pricelow.value);
     const priceHighValue = parseInt(pricehigh.value);
-    document.getElementById("result").innerHTML=`從分類:${categorySelect.innerHTML}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;
+    document.getElementById("result").innerHTML=`從分類:${categorySelect.value.innerHTML}，金額"${priceLowValue}到${priceHighValue}"的搜尋結果`;
     if(priceHighValue<priceLowValue){
       alert("請輸入正確的範圍");
       return;
