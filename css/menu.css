@@ -246,3 +246,14 @@ body{
     color: white;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .product{
+        width:32%
+    }
+}
+@media (max-width: 800px) {
+    .product{
+        width:48%
+    }
+}

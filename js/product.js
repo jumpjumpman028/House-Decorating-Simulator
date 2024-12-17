@@ -21,6 +21,8 @@ function update() {
     cartNumber = sum; // 更新本地變數
 }
 
+
+
 function addToCart() {
     let buyNumber = parseInt(document.getElementById("qty").value, 10);
     let nameInput = document.getElementById("name").innerHTML;
@@ -51,14 +53,28 @@ function start() {
     update(); // 頁面載入時更新購物車數量
 
     // 綁定按鈕事件
+    
     document.getElementById("minus").addEventListener("click", minus, false);
     document.getElementById("plus").addEventListener("click", plus, false);
     document.getElementById("addToCart").addEventListener("click", addToCart, false);
+    
+
 }
 
 window.addEventListener("load", start, false);
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const menuButton = document.getElementById("menuButton");
+    const sidebar = document.getElementById("sidebar");
+    const applyButton = document.getElementById("apply");
+    menuButton.addEventListener("click", () => {
+        sidebar.classList.toggle("visible");
+      });
+      applyButton.addEventListener("click",()=>{
+        window.location.href = "index.html";
+      });
+
     // 獲取 URL 中的查詢參數
     const urlParams = new URLSearchParams(window.location.search);
     const productName = urlParams.get("product");
@@ -95,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         連結: <a href="${product.link}">${product.link}</a><br>
         ${product.description || "暫無描述"}
     `;
-
+    
     // 監聽加入購物車事件
     const addToCartButton = document.getElementById("addToCart");
     addToCartButton.addEventListener("click", () => {

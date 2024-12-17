@@ -5,6 +5,66 @@ body{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
     margin: 0 auto;
 }
+
+#menuButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  #menuButton:hover {
+    background-color: #f8f400;
+  }
+  
+  /* 側邊選單樣式 */
+  #sidebar {
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: left 0.3s ease; /* 平滑過渡效果 */
+    z-index: 5;
+  }
+  
+  #sidebar.visible {
+    left: 0; /* 顯示選單 */
+  }
+  
+  #sidebar button,
+  #sidebar select,
+  #sidebar input {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  
+  #sidebar h3 {
+    margin-top: 0;
+  }
+  .apply{
+    font-size: 0.8em;
+    border-radius: 5px;
+    font-weight: bolder;
+    padding: 2px;
+    background-color: #ffa32b;
+    color: white;
+    cursor: pointer;
+}
 .title{
     
     height: 100px;

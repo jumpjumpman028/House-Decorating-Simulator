@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.getElementById("menuButton");
   const sidebar = document.getElementById("sidebar");
   const applyButton = document.getElementById("apply");
+  const gobackButton = document.getElementById("goback");
   const categorySelect = document.getElementById("categorySelect");
   const searchInput = document.getElementById("search");
   const typingInput = document.getElementById("typing");
@@ -86,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // 點擊選單按鈕，切換側邊欄顯示/隱藏
   menuButton.addEventListener("click", () => {
     sidebar.classList.toggle("visible");
+  });
+  gobackButton.addEventListener("click",()=>{
+    window.location.href = "index.html";
   });
 
   applyButton.addEventListener("click", () => {
