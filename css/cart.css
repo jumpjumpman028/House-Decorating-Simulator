@@ -73,7 +73,7 @@ body{
 
 }
 .icon{
-    width: 16%;
+    width: auto;
     height: 90%;
     /* background-color: orange; */
 }
@@ -126,7 +126,8 @@ body{
 .cart-container {
     margin-top: 21px;
     margin-right: 20px;
-    position: relative; /* 讓容器成為定位的參考 */
+    right:12%;
+    position: absolute; /* 讓容器成為定位的參考 */
     display: inline-block; /* 確保容器不會占據整行，保持圖片和數字的排布 */
 }
 
