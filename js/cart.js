@@ -98,8 +98,9 @@ function start(){
                     console.error(`Error parsing JSON for key: ${key}`, e);
                 }
         
-                localStorage.removeItem(key);
+                
             }
+            localStorage.removeItem(key);
         }
         localStorage.removeItem("cartnumber");
 
