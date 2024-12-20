@@ -84,7 +84,7 @@ function start(){
     }, false);
     document.getElementById("startdecorate").addEventListener("click", function(){
 
-        for (let i = localStorage.length - 1; i >= 0; i--) {
+        for (let i =  0; i <localStorage.length; i++) {
             let key = localStorage.key(i);
             if (key && key.substring(0, 7) === "Product") {
                 let value = localStorage.getItem(key);
