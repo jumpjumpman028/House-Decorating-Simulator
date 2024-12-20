@@ -91,16 +91,16 @@ function start(){
         
                 try {
                     let obj = JSON.parse(value);
-                    if (obj.amount != 0) {
+                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
                         localStorage.setItem(`dc-${key}`, value);
                     }
                 } catch (e) {
                     console.error(`Error parsing JSON for key: ${key}`, e);
                 }
         
-                
+                localStorage.removeItem(key);
             }
-            localStorage.removeItem(key);
+            
         }
         localStorage.removeItem("cartnumber");
 
