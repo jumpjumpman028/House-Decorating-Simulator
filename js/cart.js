@@ -33,7 +33,7 @@ function update() {
             
         }
     }
-    document.getElementById("summary").innerHTML = `總計金額:${totalprice}<button class="deleteall" id="deleteall">delete all</button>`;
+    document.getElementById("summary").innerHTML = `總計金額:${totalprice}<button class="deleteall" id="deleteall">delete all</button><button class="deleteall" id ="startdecorate"  onclick='location.href="decorate.html"' >開始布置</button>`;
 
     // 更新購物車顯示
     cart.innerHTML = sum;
@@ -82,7 +82,31 @@ function start(){
     localStorage.setItem("cartnumber",parseInt(0));
     update();
     }, false);
+    document.getElementById("startdecorate").addEventListener("click", function(){
+
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+            let key = localStorage.key(i);
+            if (key && key.substring(0, 7) === "Product") {
+                let value = localStorage.getItem(key);
+        
+                try {
+                    let obj = JSON.parse(value);
+                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
+                        localStorage.setItem(`dc-${key}`, value);
+                    }
+                } catch (e) {
+                    console.error(`Error parsing JSON for key: ${key}`, e);
+                }
+        
+                localStorage.removeItem(key);
+            }
+        }
+        localStorage.removeItem("cartnumber");
+
+    },false);
 }
+
+
 
 
 
