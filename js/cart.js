@@ -83,8 +83,8 @@ function start(){
     update();
     }, false);
     document.getElementById("startdecorate").addEventListener("click", function(){
-
-        for (let i =  0; i <localStorage.length; i++) {
+        let num=localStorage.length
+        for (let i =  0; i <num; i++) {
             let key = localStorage.key(i);
             if (key && key.substring(0, 7) === "Product") {
                 let value = localStorage.getItem(key);
@@ -93,12 +93,27 @@ function start(){
                     let obj = JSON.parse(value);
                     if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
                         localStorage.setItem(`dc-${key}`, value);
+                        num+=1;
+                        
                     }
                 } catch (e) {
                     console.error(`Error parsing JSON for key: ${key}`, e);
                 }
+            }
+        }
+        for (let i =  0; i <num; i++) {
+            let key = localStorage.key(i);
+            if (key && key.substring(0, 7) === "Product") {
+                let value = localStorage.getItem(key);
         
-                localStorage.removeItem(key);
+                try {
+                    let obj = JSON.parse(value);
+                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
+                        localStorage.removeItem(key);
+                    }
+                } catch (e) {
+                    console.error(`Error parsing JSON for key: ${key}`, e);
+                }
             }
             
         }
