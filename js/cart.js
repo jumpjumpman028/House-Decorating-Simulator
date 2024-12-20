@@ -91,7 +91,7 @@ function start(){
         
                 try {
                     let obj = JSON.parse(value);
-                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
+                    if (obj.amount != 0) {
                         localStorage.setItem(`dc-${key}`, value);
                     }
                 } catch (e) {
