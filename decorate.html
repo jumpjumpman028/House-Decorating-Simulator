@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈出式圖片選擇器</title>
+    <link rel="stylesheet" href="css/decorate.css">
+</head>
+<body>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>請選擇設計圖模板：</p>
+            <img src="img/home1.png" alt="Image 1" data-image="img/home1.png">
+            <img src="img/home2.png" alt="Image 2" data-image="img/home2.png">
+            <br>
+            <button id="confirmBtn" disabled>確認</button>
+        </div>
+    </div>
+    <div class="container">
+        <div><img id="displayedImage" class="display-image" style="display: none;" alt="選擇的模板"></div>
+        <div class="product-list">
+            <button id="adjustBtn" style="display: none;">重新選擇</button>
+        </div>
+        
+    </div>
+    
+
+    <script src="js/decorate.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 1200px;
+    height: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 500px;
+    margin: 20px;
+    cursor: pointer;
+    border: 4px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+.modal-content img:hover {
+    border-color: #ffa32b;
+}
+
+.modal-content img.selected {
+    border-color: #ffa32b;
+}
+
+.modal-content button {
+    position: absolute; /* 絕對定位 */
+    bottom: 5px; /* 距離底部 5px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 精確居中對齊 */
+    padding: 8px 16px;
+    background-color: #ffa32b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #ffa32b;
+}
+.container{
+    display: flex;
+}
+.product-list{
+    background-color: #fff;
+    width: 40%;
+}
+.selected {
+    border-color: #ffa32b;
+}
+
+.display-image {
+    margin: 20px;
+    max-height: 800px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#adjustBtn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #ffa32b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#adjustBtn:hover {
+    background-color: #ffa32b;
+}
