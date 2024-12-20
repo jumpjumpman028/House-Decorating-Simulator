@@ -9,7 +9,6 @@ function dofetch(get){
   .then(data => {
     const list = document.getElementById("product-list");
     list.innerHTML = " ";
-    localStorage.clear();
     data.forEach(furniture => {
         const furnitureItem = document.createElement('a');
         furnitureItem.className = 'product';
