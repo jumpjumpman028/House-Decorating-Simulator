@@ -64,10 +64,11 @@ body {
     width: 40%;
     height: auto;
     overflow: scroll;
-    box-sizing: border-box;
+    
 }
 .item{
-    width: 100%;
+    box-sizing: border-box;
+    max-width: 99%;
     display: flex;
     border: 2px solid transparent;
     transition: border-color 0.3s, transform 0.3s;
@@ -76,6 +77,18 @@ body {
     width: 20%;
     height: auto;
     object-fit: cover;
+}
+.name{
+    margin-left: 3px;
+    margin-top: 3px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.quantity{
+    margin-top: 3px;
+    font-size: 14px;
+    color: #cf5151;
 }
 .selected {
     border-color: #ffa32b;
