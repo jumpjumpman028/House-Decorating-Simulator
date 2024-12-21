@@ -21,6 +21,7 @@ confirmBtn.addEventListener('click', () => {
     displayedImage.style.display = 'block';
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
+    starttoinput();
 });
 
 // 重新選擇按鈕的事件
