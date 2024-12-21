@@ -21,6 +21,7 @@ confirmBtn.addEventListener('click', () => {
     displayedImage.style.display = 'block';
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
+    starttoinput();
 });
 
 // 重新選擇按鈕的事件
@@ -59,7 +60,7 @@ function starttoinput() {
         }
 
         // 檢查鍵的格式並生成內容
-        if (key && key.substring(0, 2) === "dc") {
+        if (key && key.substring(0, 2) === "dc" && obj.amount!=0) {
             let item = `
                 <div class="item" onclick="createfurniture()">
                     <img src="img/furniture/${obj.category}.png">
