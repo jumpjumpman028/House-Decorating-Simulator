@@ -23,20 +23,19 @@ confirmBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
 
-
+    // 清除與產品相關的 localStorage 鍵
     let keysToRemove = [];
-for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    if (key && key.substring(0, 7) === "Product") {
-        keysToRemove.push(key);
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key && key.substring(0, 7) === "Product") {
+            keysToRemove.push(key);
+        }
     }
-}
-
-keysToRemove.forEach(key => {
-    localStorage.removeItem(key);
-});
-    localStorage.removeItem("cartnumber");
-    starttoinput();
+    keysToRemove.forEach(key => {
+        localStorage.removeItem(key);
+    });
+    localStorage.removeItem("cartnumber"); // 清除購物車數量
+    starttoinput(); // 更新顯示
 });
 
 // 重新選擇按鈕的事件
@@ -50,20 +49,29 @@ adjustBtn.addEventListener('click', () => {
     images.forEach(img => img.classList.remove('selected'));
 });
 
+// 初始化產品顯示清單
 function starttoinput() {
     let productlist = document.getElementById('productlist');
     productlist.innerHTML = ''; // 清空列表
+
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        let value = localStorage.getItem(key);
+        let value;
+        if (key && key.substring(0, 2) === "dc") {
+             value = localStorage.getItem(key);
+        }
+        else{
+            continue;
+        }
+        
         let obj;
 
-        // 檢查 JSON 格式
+        // 嘗試解析 JSON
         try {
             obj = JSON.parse(value);
         } catch (error) {
-            console.error(`Invalid JSON for key: ${key}`, value, error);
-            continue; // 跳過無效的項目
+            console.warn(`跳過無效 JSON 鍵: ${key}`, value);
+            continue; // 跳過非 JSON 鍵
         }
 
         // 檢查鍵的格式並生成內容
@@ -82,15 +90,19 @@ function starttoinput() {
     }
 }
 
+// 刪除指定產品的事件
 function deleteItem(key) {
-    // 確認是否存在該 key
     const obj = JSON.parse(localStorage.getItem(key));
     if (obj) {
-        obj.amount -= 1; // 更新數量為 0（如果需要直接移除，也可以使用 localStorage.removeItem）
-        localStorage.setItem(key, JSON.stringify(obj));
-        location.reload(); // 重新載入頁面來更新列表
+        obj.amount -= 1;
+        if (obj.amount <= 0) {
+            localStorage.removeItem(key); // 移除數量為 0 的產品
+        } else {
+            localStorage.setItem(key, JSON.stringify(obj));
+        }
+        location.reload(); // 重新載入頁面更新列表
     } else {
-        console.error(`Key '${key}' not found in localStorage.`);
+        console.error(`找不到 localStorage 鍵: '${key}'`);
     }
 }
 
