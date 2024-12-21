@@ -65,6 +65,7 @@ function start(){
         cart.innerHTML = cartNumber;
     } 
     else {
+        localStorage.clear();
         localStorage.setItem("cartnumber",parseInt(0));
         update();
         cart.innerHTML = cartNumber;
