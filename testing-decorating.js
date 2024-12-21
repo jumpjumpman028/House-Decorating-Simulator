@@ -45,7 +45,7 @@ function deleteItem(key) {
         } else {
             localStorage.setItem(key, JSON.stringify(obj));
         }
-        starttoinput(); // 重新更新產品列表
+        //starttoinput(); // 重新更新產品列表
     } else {
         console.error(`找不到 localStorage 鍵: '${key}'`);
     }
