@@ -36,21 +36,17 @@ adjustBtn.addEventListener('click', () => {
 
 // 初始化產品顯示清單
 function starttoinput() {
+    
+    localStorage.removeItem("cartnumber")
     let productlist = document.getElementById('productlist');
     productlist.innerHTML = ''; // 清空列表
 
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
         let value;
-        if (key && key.substring(0, 2) === "dc") {
-            value = localStorage.getItem(key);
-        }
-        else{
-            continue;
-        }
-
+        if (key && key.substring(0, 2) === "dc") {value = localStorage.getItem(key);}
+        else{continue;}
         let obj;
-
         // 嘗試解析 JSON
         try {
             obj = JSON.parse(value);
@@ -73,6 +69,16 @@ function starttoinput() {
             productlist.innerHTML += item; // 使用 innerHTML 添加內容
         }
     }
+    let keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key && key.substring(0, 7) === "Product") {
+            keysToRemove.push(key);
+        }
+    }
+    keysToRemove.forEach(key => {
+        localStorage.removeItem(key);
+    });
 }
 
 // 刪除指定產品的事件
