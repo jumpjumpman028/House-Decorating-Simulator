@@ -19,16 +19,19 @@
     <div class="container">
         <div>
             <img id="displayedImage" class="display-image" style="display: none;" alt="選擇的模板">
-            <button id="adjustBtn" >重新選擇</button>
-            <button id="expoet" >匯出成為圖片</button>
+            <button id="adjustBtn">重新選擇</button>
+            <button id="expoet">匯出成為圖片</button>
         </div>
 
         <div class="product-list" id="productlist">
-            
+            <!-- 產品列表會在這裡動態生成 -->
         </div>
-        
     </div>
     
+    <!-- 画布 -->
+    <div class="canvas" id="canvas" style="position: relative; background-color: #eaeaea; width: 800px; height: 600px;">
+        <!-- 拖放的家具將放置在這裡 -->
+    </div>
 
     <script src="js/decorate.js"></script>
 </body>
