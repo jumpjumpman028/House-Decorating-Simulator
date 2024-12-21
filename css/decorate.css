@@ -41,10 +41,10 @@ body {
 }
 
 .modal-content button {
-    position: absolute;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute; /* 絕對定位 */
+    bottom: 5px; /* 距離底部 5px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 精確居中對齊 */
     padding: 8px 16px;
     background-color: #ffa32b;
     color: white;
@@ -56,80 +56,62 @@ body {
 .modal-content button:hover {
     background-color: #ffa32b;
 }
-
-.container {
+.container{
     display: flex;
 }
-
-.product-list {
+.product-list{
     background-color: #fff;
     width: 40%;
     height: auto;
     overflow: scroll;
+    
 }
-
-.item {
+.item{
     box-sizing: border-box;
     max-width: 99%;
     display: flex;
     border: 2px solid transparent;
     transition: border-color 0.3s, transform 0.3s;
-    cursor: grab;
 }
-
-.item img {
+.item img{
     width: 20%;
     height: auto;
     object-fit: cover;
 }
-
-.name {
+.name{
     margin-left: 3px;
     margin-top: 3px;
     font-size: 16px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
-.quantity {
+.quantity{
     margin-top: 3px;
     font-size: 14px;
     color: #cf5151;
 }
-
-.canvas {
-    position: relative;
-    border: 1px solid #ccc;
-    margin-left: 20px;
+.selected {
+    border-color: #ffa32b;
 }
 
-.furniture {
-    position: absolute;
-    cursor: move;
-    user-select: none;
-    width: 100px;
-    height: auto;
+.display-image {
+    margin: 10px;
+    max-height: 800px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.rotate-btn {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
+.container button{
+    margin-left: 15px;
+    padding: 8px 16px;
     background-color: #ffa32b;
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
 }
 
-.rotate-btn:hover {
-    background-color: #f88;
-}
-
-.selected {
-    border-color: #ffa32b;
+.container button{
+    background-color: #ffa32b;
 }
