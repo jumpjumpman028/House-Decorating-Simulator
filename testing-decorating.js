@@ -21,7 +21,7 @@ confirmBtn.addEventListener('click', () => {
     displayedImage.style.display = 'block';
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
-    starttoinput(); // 更新顯示
+    //starttoinput(); // 更新顯示
 });
 
 // 重新選擇按鈕的事件
@@ -73,6 +73,9 @@ displayedImage.addEventListener('drop', (event) => {
     image.style.top = `${y}px`;  // 設定圖片的 y 坐標
     image.style.width = '50px';  // 設定圖片的大小
     image.style.height = '50px';
+    image.draggable = true; 
+    image.style.position = 'absolute';
+    image.style.zIndex = '999999';
     displayedImage.appendChild(image); // 將圖片添加到 displayedImage 上
 });
 
