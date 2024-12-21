@@ -24,9 +24,9 @@ confirmBtn.addEventListener('click', () => {
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
 
 
-    for (let i =  0; i <localStorage.length; i++) {
+    for (let i =  0; i <5000; i++) {
         let key = localStorage.key(i);
-        if (key && key.substring(0, 7) == "Product-") {
+        if (key && key.substring(0, 7) == "Product") {
             let value = localStorage.getItem(key);
                     localStorage.removeItem(key);
             } 

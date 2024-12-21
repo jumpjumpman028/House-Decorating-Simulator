@@ -86,7 +86,7 @@ function start(){
         let num=localStorage.length
         for (let i =  0; i <num; i++) {
             let key = localStorage.key(i);
-            if (key && key.substring(0, 7) === "Product-") {
+            if (key && key.substring(0, 7) === "Product") {
                 let value = localStorage.getItem(key);
         
                 try {
