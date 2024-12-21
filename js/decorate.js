@@ -52,20 +52,32 @@ adjustBtn.addEventListener('click', () => {
 
 function starttoinput() {
     let productlist = document.getElementById('productlist');
-    productlist.innerHTML = '';
-    for(let i = 0; i < localStorage.length; i++){
+    productlist.innerHTML = ''; // 清空列表
+    for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        let obj = JSON.parse(localStorage.getItem(key));
+        let value = localStorage.getItem(key);
+        let obj;
+
+        // 檢查 JSON 格式
+        try {
+            obj = JSON.parse(value);
+        } catch (error) {
+            console.error(`Invalid JSON for key: ${key}`, value, error);
+            continue; // 跳過無效的項目
+        }
+
+        // 檢查鍵的格式並生成內容
         if (key && key.substring(0, 2) === "dc") {
-            let item=`<div class="item" onclick="createfurniture">
-                        <img src="${obj.image}">
-                        <div class="info">
-                            <div class="name">${obj.name}</div>
-                            <div class="quantity" id="qty">${obj.amount}</div>   
+            let item = `
+                <div class="item" onclick="createfurniture()">
+                    <img src="${obj.image}">
+                    <div class="info">
+                        <div class="name">${obj.name}</div>
+                        <div class="quantity" id="qty">${obj.amount}</div>   
                         <button class="delete" onclick="deleteItem('${key}')">Delete</button>
-                        </div>
-                    </div>`;
-                    productlist.appendChild(item);
+                    </div>
+                </div>`;
+            productlist.innerHTML += item; // 使用 innerHTML 添加內容
         }
     }
 }
