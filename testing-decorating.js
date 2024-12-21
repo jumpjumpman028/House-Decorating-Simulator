@@ -1,7 +1,6 @@
 const modal = document.getElementById('modal');
 const confirmBtn = document.getElementById('confirmBtn');
 const adjustBtn = document.getElementById('adjustBtn');
-const selectedImageText = document.getElementById('selectedImage');
 const displayedImage = document.getElementById('displayedImage');
 let selectedImage = null;
 
@@ -22,19 +21,6 @@ confirmBtn.addEventListener('click', () => {
     displayedImage.style.display = 'block';
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
-
-    // 清除與產品相關的 localStorage 鍵
-    let keysToRemove = [];
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        if (key && key.substring(0, 7) === "Product") {
-            keysToRemove.push(key);
-        }
-    }
-    keysToRemove.forEach(key => {
-        localStorage.removeItem(key);
-    });
-    localStorage.removeItem("cartnumber"); // 清除購物車數量
     starttoinput(); // 更新顯示
 });
 
@@ -43,52 +29,11 @@ adjustBtn.addEventListener('click', () => {
     modal.style.display = 'flex';
     adjustBtn.style.display = 'none'; // 隱藏重新選擇按鈕
     displayedImage.style.display = 'none'; // 隱藏顯示的圖片
-    selectedImageText.textContent = '選擇的圖片：無';
     selectedImage = null;
     confirmBtn.disabled = true;
     images.forEach(img => img.classList.remove('selected'));
 });
 
-// 初始化產品顯示清單
-function starttoinput() {
-    let productlist = document.getElementById('productlist');
-    //productlist.innerHTML = ''; // 清空列表
-
-    for (let i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i);
-        let value;
-        if (key && key.substring(0, 2) === "dc") {
-             value = localStorage.getItem(key);
-        }
-        else{
-            continue;
-        }
-        
-        let obj;
-
-        // 嘗試解析 JSON
-        try {
-            obj = JSON.parse(value);
-        } catch (error) {
-            console.warn(`跳過無效 JSON 鍵: ${key}`, value);
-            continue; // 跳過非 JSON 鍵
-        }
-
-        // 檢查鍵的格式並生成內容
-        if (key && key.substring(0, 2) === "dc") {
-            let item = `
-                <div class="item" onclick="createfurniture()">
-                    <img src="img/furniture/${obj.category}.png">
-                    <div class="info">
-                        <div class="name">${obj.name}</div>
-                        <div class="quantity" id="qty">剩餘數量:${obj.amount}</div>   
-                        <button class="delete" onclick="deleteItem('${key}')">Delete</button>
-                    </div>
-                </div>`;
-            //productlist.innerHTML += item; // 使用 innerHTML 添加內容
-        }
-    }
-}
 
 // 刪除指定產品的事件
 function deleteItem(key) {
@@ -100,11 +45,36 @@ function deleteItem(key) {
         } else {
             localStorage.setItem(key, JSON.stringify(obj));
         }
-        location.reload(); // 重新載入頁面更新列表
+        starttoinput(); // 重新更新產品列表
     } else {
         console.error(`找不到 localStorage 鍵: '${key}'`);
     }
 }
+
+// 處理拖曳開始
+function handleDragStart(event) {
+    event.dataTransfer.setData('text/plain', event.target.src); // 設置拖曳的資料
+}
+
+// 接受拖曳的圖片並顯示
+displayedImage.addEventListener('dragover', (event) => {
+    event.preventDefault(); // 必須防止默認事件，才能允許放下
+});
+
+displayedImage.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const imageUrl = event.dataTransfer.getData('text/plain'); // 獲取拖曳的圖片網址
+    const x = event.offsetX;  // 計算鼠標點擊位置的 x 坐標
+    const y = event.offsetY;  // 計算鼠標點擊位置的 y 坐標
+    const image = document.createElement('img'); // 創建一個新的圖片元素
+    image.src = imageUrl;
+    image.style.position = 'absolute';
+    image.style.left = `${x}px`; // 設定圖片的 x 坐標
+    image.style.top = `${y}px`;  // 設定圖片的 y 坐標
+    image.style.width = '50px';  // 設定圖片的大小
+    image.style.height = '50px';
+    displayedImage.appendChild(image); // 將圖片添加到 displayedImage 上
+});
 
 // 頁面載入時顯示彈窗
 window.onload = () => {
