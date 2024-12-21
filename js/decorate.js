@@ -26,7 +26,7 @@ confirmBtn.addEventListener('click', () => {
 
     for (let i =  0; i <localStorage.length; i++) {
         let key = localStorage.key(i);
-        if (key && key.substring(0, 7) === "Product") {
+        if (key && key.substring(0, 7) == "Product-") {
             let value = localStorage.getItem(key);
                     localStorage.removeItem(key);
             } 
