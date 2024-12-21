@@ -81,7 +81,7 @@ function starttoinput() {
                     <img src="${obj.image}">
                     <div class="info">
                         <div class="name">${obj.name}</div>
-                        <div class="quantity" id="qty">${obj.amount}</div>   
+                        <div class="quantity" id="qty">剩餘數量:${obj.amount}</div>   
                         <button class="delete" onclick="deleteItem('${key}')">Delete</button>
                     </div>
                 </div>`;
