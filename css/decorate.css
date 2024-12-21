@@ -62,6 +62,19 @@ body {
 .product-list{
     background-color: #fff;
     width: 40%;
+    height: auto;
+    overflow: scroll;
+}
+.item{
+    margin: 100%;
+    display: flex;
+    border: 2px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
+}
+.item img{
+    width: 20%;
+    height: auto;
+    object-fit: cover;
 }
 .selected {
     border-color: #ffa32b;

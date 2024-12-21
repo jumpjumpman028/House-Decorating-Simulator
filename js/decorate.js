@@ -36,6 +36,7 @@ keysToRemove.forEach(key => {
     localStorage.removeItem(key);
 });
     localStorage.removeItem("cartnumber");
+    starttoinput();
 });
 
 // 重新選擇按鈕的事件
@@ -48,6 +49,38 @@ adjustBtn.addEventListener('click', () => {
     confirmBtn.disabled = true;
     images.forEach(img => img.classList.remove('selected'));
 });
+
+function starttoinput() {
+    let productlist = document.getElementById('productlist');
+    productlist.innerHTML = '';
+    for(let i = 0; i < localStorage.length; i++){
+        let key = localStorage.key(i);
+        let obj = JSON.parse(localStorage.getItem(key));
+        if (key && key.substring(0, 2) === "dc") {
+            let item=`<div class="item" onclick="createfurniture">
+                        <img src="${obj.image}">
+                        <div class="info">
+                            <div class="name">${obj.name}</div>
+                            <div class="quantity" id="qty">${obj.amount}</div>   
+                        <button class="delete" onclick="deleteItem('${key}')">Delete</button>
+                        </div>
+                    </div>`;
+                    productlist.appendChild(item);
+        }
+    }
+}
+
+function deleteItem(key) {
+    // 確認是否存在該 key
+    const obj = JSON.parse(localStorage.getItem(key));
+    if (obj) {
+        obj.amount -= 1; // 更新數量為 0（如果需要直接移除，也可以使用 localStorage.removeItem）
+        localStorage.setItem(key, JSON.stringify(obj));
+        location.reload(); // 重新載入頁面來更新列表
+    } else {
+        console.error(`Key '${key}' not found in localStorage.`);
+    }
+}
 
 // 頁面載入時顯示彈窗
 window.onload = () => {
