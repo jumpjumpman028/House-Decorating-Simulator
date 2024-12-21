@@ -59,7 +59,7 @@ function starttoinput() {
         }
 
         // 檢查鍵的格式並生成內容
-        if (key && key.substring(0, 2) === "dc") {
+        if (key && key.substring(0, 2) === "dc" && obj.amount!=0) {
             let item = `
                 <div class="item" onclick="createfurniture()">
                     <img src="img/furniture/${obj.category}.png">
