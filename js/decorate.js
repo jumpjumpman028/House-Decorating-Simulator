@@ -78,7 +78,7 @@ function starttoinput() {
         if (key && key.substring(0, 2) === "dc") {
             let item = `
                 <div class="item" onclick="createfurniture()">
-                    <img src="${obj.image}">
+                    <img src="img/furniture/${obj.category}.png">
                     <div class="info">
                         <div class="name">${obj.name}</div>
                         <div class="quantity" id="qty">剩餘數量:${obj.amount}</div>   
