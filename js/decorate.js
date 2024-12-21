@@ -22,6 +22,16 @@ confirmBtn.addEventListener('click', () => {
     displayedImage.style.display = 'block';
     modal.style.display = 'none';
     adjustBtn.style.display = 'inline-block'; // 顯示重新選擇按鈕
+
+
+    for (let i =  0; i <localStorage.length; i++) {
+        let key = localStorage.key(i);
+        if (key && key.substring(0, 7) === "Product") {
+            let value = localStorage.getItem(key);
+                    localStorage.removeItem(key);
+            } 
+        }
+    localStorage.removeItem("cartnumber");
 });
 
 // 重新選擇按鈕的事件

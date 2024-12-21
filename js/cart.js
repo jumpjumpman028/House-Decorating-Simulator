@@ -101,24 +101,6 @@ function start(){
                 }
             }
         }
-        for (let i =  0; i <num; i++) {
-            let key = localStorage.key(i);
-            if (key && key.substring(0, 7) === "Product") {
-                let value = localStorage.getItem(key);
-        
-                try {
-                    let obj = JSON.parse(value);
-                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
-                        localStorage.removeItem(key);
-                    }
-                } catch (e) {
-                    console.error(`Error parsing JSON for key: ${key}`, e);
-                }
-            }
-            
-        }
-        localStorage.removeItem("cartnumber");
-
     },false);
 }
 
