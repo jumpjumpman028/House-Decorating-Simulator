@@ -2,6 +2,7 @@ const modal = document.getElementById('modal');
 const confirmBtn = document.getElementById('confirmBtn');
 const adjustBtn = document.getElementById('adjustBtn');
 const displayedImage = document.getElementById('displayedImage');
+const myroom = document.getElementById('all');
 let selectedImage = null;
 
 // 選擇圖片的事件
@@ -101,3 +102,49 @@ function deleteItem(key) {
 window.onload = () => {
     modal.style.display = 'flex';
 };
+
+productList.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', event.target.outerHTML);
+});
+
+displayedImage.addEventListener('dragover', (event) => {
+    event.preventDefault(); // 必須阻止默認行為
+});
+
+displayedImage.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const itemHtml = event.dataTransfer.getData('text/plain');
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = itemHtml;
+    const furniture = tempDiv.firstChild;
+
+    // 設定家具樣式
+    furniture.style.position = 'absolute';
+    furniture.style.left = `${e.clientX - canvasRect.left - 40}px`;
+    furniture.style.top = `${e.clientY - canvasRect.top - 40}px`;
+    furniture.style.zIndex = 100;
+    furniture.style.width = '5%';
+    furniture.style.height = '5%';
+    furniture.draggable = false;
+
+    // 添加旋轉按鈕
+    const rotateButton = document.createElement('button');
+    rotateButton.classList.add('rotate-button');
+    rotateButton.innerText = '↻';
+    rotateButton.style.left = `${event.offsetX- 20}px`;
+    rotateButton.style.top = `${event.offsetY - 20}px`;
+
+    furniture.addEventListener('click', () => {
+        rotateButton.style.display = 'block';
+    });
+
+    rotateButton.addEventListener('click', () => {
+        const currentRotation = parseInt(furniture.dataset.rotation || '0', 10);
+        const newRotation = (currentRotation + 90) % 360;
+        furniture.style.transform = `rotate(${newRotation}deg)`;
+        furniture.dataset.rotation = newRotation;
+    });
+
+    myroom.appendChild(furniture);
+    myroom.appendChild(rotateButton);
+});

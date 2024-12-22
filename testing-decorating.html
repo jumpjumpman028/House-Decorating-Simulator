@@ -18,13 +18,16 @@
     </div>
     <div class="container">
         <div >
-            <img id="displayedImage" class="display-image" style="display: none;" alt="選擇的模板">
+            <div id ="all">
+                <img id="displayedImage" class="display-image" style="display: none;" alt="選擇的模板">
+            </div>
+            
             <button id="adjustBtn" >重新選擇</button>
             <button id="expoet" >匯出成為圖片</button>
         </div>
 
         <div class="product-list" id="productlist">
-            <div class="item" onclick="createfurniture()">
+            <div class="item" onclick="createfurniture()" class="itemimg">
                 <img src="img/furniture/cabinet.png">
                 <div class="info">
                     <div class="name">HAHAHA</div>
@@ -33,7 +36,7 @@
                 </div>
             </div>
             <div class="item" onclick="createfurniture()">
-                <img src="img/furniture/sofa.png">
+                <img src="img/furniture/sofa.png" class="itemimg">
                 <div class="info">
                     <div class="name">super nova</div>
                     <div class="quantity" id="qty">剩餘數量:</div>   
@@ -41,7 +44,7 @@
                 </div>
             </div>
             <div class="item" onclick="createfurniture()">
-                <img src="img/furniture/chair.png">
+                <img src="img/furniture/chair.png" class="itemimg">
                 <div class="info">
                     <div class="name">super chair</div>
                     <div class="quantity" id="qty">剩餘數量:</div>   

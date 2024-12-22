@@ -185,5 +185,21 @@ document.addEventListener("DOMContentLoaded", () => {
   
 });
 
+function checkPPT(){
+    // 檔案的 URL 和名稱
+    const fileUrl = 'PPT/white.pptx'; // 替換成你的檔案 URL
+    const fileName = 'white.pptx';
 
+    // 建立一個隱藏的 <a> 元素
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName;
+
+    // 將 <a> 元素加入到 DOM，並觸發點擊事件
+    document.body.appendChild(link);
+    link.click();
+
+    // 移除 <a> 元素
+    document.body.removeChild(link);
+}
 window.addEventListener("load",start,false);
