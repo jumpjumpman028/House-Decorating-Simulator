@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".price").textContent = `${product.price} 元`;
     document.querySelector(".discription").innerHTML = `
         分類:${product.category}<br>
-        尺寸: 寬度 ${product.width}，深度 ${product.depth}，高度 ${product.height}<br>
+        尺寸: 寬度 ${product.width}cm，深度 ${product.depth}cm，高度 ${product.height}cm<br>
         <a href="${product.link}">查看更多商品資訊</a>
     `;
     
