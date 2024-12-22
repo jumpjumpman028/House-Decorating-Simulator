@@ -207,10 +207,34 @@ body{
     width:30%;
     overflow-wrap: break-word;
 }
-.quantity {
-    margin-top: 4px;
-    font-size: 1.2em;
-    width:5%
+.quantity button {
+    background-color: #ffa32b;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 30px;
+    height: auto;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.quantity button:hover {
+    background-color: #e18b1b;
+}
+
+.input-box {
+    width: 40px;
+    text-align: center;
+    border: none;
+    padding: 8px 10px;
+    font-size: 16px;
+    outline: none;
+}
+.input-box::-webkit-inner-spin-button,
+.input-box::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .input-box {

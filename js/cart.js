@@ -22,7 +22,11 @@ function update() {
                     <a href="product.html?product=${obj.name}"><img src="${obj.image}"></a>
                     <div class="info">
                         <div class="name">${obj.name}</div>
-                        <div class="quantity" id="qty">${obj.amount}</div>
+                        <div class="quantity">
+                            <button id="minus" >-</button>
+                            <input type="number" id="qty" class="input-box" value="${obj.amount}" min="1" max="10">
+                            <button id="plus">+</button>
+                        </div>
                         <div class="price">$${priceofthatxie}</div>     
                         <button class="delete" onclick="deleteItem('${key}')">Delete</button>
                     </div>`;
@@ -41,22 +45,55 @@ function update() {
     localStorage.setItem("cartnumber", sum);
     cartNumber = sum; // 更新本地變數
 }
-/*
-function deleted(){
-    let key = "Product"+document.getElementById("name").innerHTML;
-    localStorage.removeItem("cartnumber");
-    let cart = document.getElementById("cart-number");
-    cart.innerHTML = cartNumber.innerHTML-parseInt(document.getElementById("qty").value);
-    let total = document.getElementById("cart-number");
-    total.innerHTML = cartNumber;
-    update();
-}
-    */
+
+document.addEventListener("click", function (event) {
+    // 確保點擊的元素是按鈕，並且擁有我們需要的類名
+    if (event.target.id === "minus" || event.target.id === "plus") {
+        const quantityDiv = event.target.closest(".quantity"); // 找到父層 .quantity
+        const inputBox = quantityDiv.querySelector(".input-box"); // 獲取對應的輸入框
+        const cartItem = quantityDiv.closest(".product"); // 找到對應的商品區塊
+        const productName = cartItem.querySelector(".name").innerText; // 取得商品名稱
+
+        let currentValue = parseInt(inputBox.value); // 當前數量
+
+        // 獲取對應的商品資料
+        for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i);
+
+            if (key.substring(0, 7) === "Product") {
+                let obj = JSON.parse(localStorage.getItem(key));
+
+                if (obj.name === productName) {
+                    // 處理減號按鈕
+                    if (event.target.id === "minus" && currentValue > parseInt(inputBox.min)) {
+                        inputBox.value = currentValue - 1;
+                        obj.amount -= 1; // 更新商品數量
+                    }
+
+                    // 處理加號按鈕
+                    if (event.target.id === "plus" && currentValue < parseInt(inputBox.max)) {
+                        inputBox.value = currentValue + 1;
+                        obj.amount += 1; // 更新商品數量
+                    }
+
+                    // 同步更新 localStorage
+                    localStorage.setItem(key, JSON.stringify(obj));
+                    break; // 已找到對應商品，結束迴圈
+                }
+            }
+        }
+
+        // 更新購物車顯示
+        update();
+    }
+});
+
+
 function deleteItem(key) {
     // 確認是否存在該 key
     const obj = JSON.parse(localStorage.getItem(key));
     if (obj) {
-        obj.amount -= 1; // 更新數量為 0（如果需要直接移除，也可以使用 localStorage.removeItem）
+        obj.amount = 0; // 更新數量為 0（如果需要直接移除，也可以使用 localStorage.removeItem）
         localStorage.setItem(key, JSON.stringify(obj));
         location.reload(); // 重新載入頁面來更新列表
     } else {
