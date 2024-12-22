@@ -108,8 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".discription").innerHTML = `
         分類:${product.category}<br>
         尺寸: 寬度 ${product.width}，深度 ${product.depth}，高度 ${product.height}<br>
-        連結: <a href="${product.link}">${product.link}</a><br>
-        ${product.description}
+        <a href="${product.link}">查看更多商品資訊</a>
     `;
     
     // 監聽加入購物車事件
