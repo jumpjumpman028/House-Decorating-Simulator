@@ -157,7 +157,7 @@ body{
 }
 .table{
     width: 99%;
-    height: auto;
+    height: 600px;
     border-collapse: separate;
     display: flex;
     margin-top: 20px;
