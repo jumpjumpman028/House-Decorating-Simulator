@@ -37,7 +37,8 @@ function update() {
             
         }
     }
-    document.getElementById("summary").innerHTML = `總計金額:${totalprice}<button class="deleteall" id="deleteall">delete all</button><button class="deleteall" id ="startdecorate"  onclick='location.href="decorate.html"' >開始布置</button>`;
+    document.getElementById("summary").innerHTML = `總計金額:${totalprice}<button class="deleteall" id="deleteall">delete all</button>
+    <button class="startdecorate" id ="startdecorate"  onclick='location.href="decorate.html"' >開始布置</button>`;
 
     // 更新購物車顯示
     cart.innerHTML = sum;
