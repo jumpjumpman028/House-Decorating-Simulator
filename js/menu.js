@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
 });
-
+/*
 function checkPPT(){
     // 檔案的 URL 和名稱
     const fileUrl = 'PPT/white.pptx'; // 替換成你的檔案 URL
@@ -201,5 +201,5 @@ function checkPPT(){
 
     // 移除 <a> 元素
     document.body.removeChild(link);
-}
+}*/
 window.addEventListener("load",start,false);

@@ -152,7 +152,7 @@ function start(){
         const name = product.querySelector('.name').textContent.trim();
         const price = product.querySelector('.price').textContent.trim().replace('$', '');
         const quantity = product.querySelector('#qty').value.trim();
-        const link = "https://jumpjumpman028.github.io/House-Decorating-Simulator/"+product.querySelector('a').href;
+        const link = product.querySelector('a').href;
 
         data.push([name, price, quantity,link]);
     });
