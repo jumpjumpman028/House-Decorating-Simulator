@@ -170,6 +170,7 @@ body{
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     box-sizing: border-box;
+    overflow: hidden;
 
 }
 .pic{
