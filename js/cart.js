@@ -160,12 +160,13 @@ function start(){
     const csvContent = data.map(row => row.join(",")).join("\n");
 
     // Create a Blob and download it as an Excel file
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const bom = '\ufeff'; // UTF-8 BOM
+    const blob = new Blob([bom + csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'products.csv';
+    a.download = 'YourList.csv';
     a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
