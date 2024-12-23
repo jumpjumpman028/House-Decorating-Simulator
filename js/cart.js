@@ -122,26 +122,7 @@ function start(){
     localStorage.setItem("cartnumber",parseInt(0));
     update();
     }, false);
-    /*document.getElementById("startdecorate").addEventListener("click", function(){
-        let num=localStorage.length
-        for (let i =  0; i <num; i++) {
-            let key = localStorage.key(i);
-            if (key && key.substring(0, 7) === "Product") {
-                let value = localStorage.getItem(key);
-        
-                try {
-                    let obj = JSON.parse(value);
-                    if (obj && obj.amount && typeof obj.amount === "number" && obj.amount !== 0) {
-                        localStorage.setItem(`dc-${key}`, value);
-                        num+=1;
-                        
-                    }
-                } catch (e) {
-                    console.error(`Error parsing JSON for key: ${key}`, e);
-                }
-            }
-        }
-    },false);*/
+
     // Function to export table data to Excel
     document.getElementById("exportButton").addEventListener('click', function(){
         // Retrieve product details
@@ -152,7 +133,9 @@ function start(){
         const name = product.querySelector('.name').textContent.trim();
         const price = product.querySelector('.price').textContent.trim().replace('$', '');
         const quantity = product.querySelector('#qty').value.trim();
-        const link = product.querySelector('a').href;
+        let key = "Product-"+ product.querySelector('.name').textContent;
+        let obj = JSON.parse(localStorage.getItem(key));
+        const link =obj.link;
 
         data.push([name, price, quantity,link]);
     });
