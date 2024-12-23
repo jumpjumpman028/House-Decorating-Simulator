@@ -38,9 +38,9 @@ function update() {
         }
     }
     document.getElementById("summary").innerHTML = `總計金額:${totalprice}
-    <button  class="export" id="exportButton">Export</button>
-    <button class="deleteall" id="deleteall">delete all</button>
-    <button class="startdecorate" id ="startdecorate"  onclick='location.href="decorate.html"' >開始布置</button>`;
+    <button  class="export" id="exportButton">匯出Excel檔</button>
+    <button class="deleteall" id="deleteall">刪除全部</button>
+    `;
 
     // 更新購物車顯示
     cart.innerHTML = sum;
@@ -146,14 +146,15 @@ function start(){
     document.getElementById("exportButton").addEventListener('click', function(){
         // Retrieve product details
     const products = document.querySelectorAll('.product');
-    const data = [['Name', 'Price', 'Quantity']]; // Header row
+    const data = [['Name', 'Price', 'Quantity','Link']]; // Header row
 
     products.forEach(product => {
         const name = product.querySelector('.name').textContent.trim();
         const price = product.querySelector('.price').textContent.trim().replace('$', '');
         const quantity = product.querySelector('#qty').value.trim();
+        const link = "https://jumpjumpman028.github.io/House-Decorating-Simulator/"+product.querySelector('a').href;
 
-        data.push([name, price, quantity]);
+        data.push([name, price, quantity,link]);
     });
 
     // Create a CSV string from the data array
