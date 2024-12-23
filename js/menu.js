@@ -36,9 +36,6 @@ function dofetch(get){
   });
 }
 
-
-
-
 /*
     預期在載入商品時每個商品都會被存入 key 為"Product-商品名稱" 的local storage,
     存入的內容可能是json轉成的物件+一個amount屬性計算購買數量。
@@ -122,12 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const list = document.getElementById("product-list");
       list.innerHTML = " ";
   
-      data.forEach(furniture => {
+      data.forEach(furniture => {  //
         if(selectedCategory==furniture.category||selectedCategory=="all"){
           if(furniture.price>=priceLowValue && furniture.price<=priceHighValue){
           const furnitureItem = document.createElement('a');
           furnitureItem.className = 'product';
-          furnitureItem.href = `product.html?product=${furniture.name}`;
+          furnitureItem.href = `product.html?product=${furniture.name}`; // 連結到商品頁面
           furnitureItem.innerHTML = `
             <img src="${furniture.image}" alt="${furniture.name}">
                   <div class="abbreviation">
@@ -145,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error('發生錯誤:', error);
     });
   });
-
+// 呈現搜尋結果
   searchInput.addEventListener("click", () => {
     let you_want=document.getElementById("typing").value;
     document.getElementById("result").innerHTML=`"${you_want}"的搜尋結果`;

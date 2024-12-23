@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const productName = urlParams.get("product");
 
     if (!productName) {
-        alert("商品名稱未提供！");
+        alert("商品名稱未提供！");  
         return;
     }
 
