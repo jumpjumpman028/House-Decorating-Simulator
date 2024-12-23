@@ -122,7 +122,7 @@ function start(){
     localStorage.setItem("cartnumber",parseInt(0));
     update();
     }, false);
-    document.getElementById("startdecorate").addEventListener("click", function(){
+    /*document.getElementById("startdecorate").addEventListener("click", function(){
         let num=localStorage.length
         for (let i =  0; i <num; i++) {
             let key = localStorage.key(i);
@@ -141,7 +141,7 @@ function start(){
                 }
             }
         }
-    },false);
+    },false);*/
     // Function to export table data to Excel
     document.getElementById("exportButton").addEventListener('click', function(){
         // Retrieve product details
