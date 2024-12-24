@@ -157,6 +157,9 @@ body{
     flex-wrap: wrap;
 }
 
+#typing{
+    width:50px;
+}
 .result{
     font-size: 1.3em;
     padding-top: 30px;
@@ -276,6 +279,15 @@ body{
 @media (max-width: 800px) {
     .product{
         width:48%
+    }
+    
+}
+@media(max-width: 500px){
+    .checkPPT{
+        position: fixed;
+        top:500px;
+        right:0px;
+        font-size: 1em;
     }
     
 }

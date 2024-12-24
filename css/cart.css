@@ -282,7 +282,7 @@ body{
 
 .export {
     position: absolute;
-    right:400px;
+    right:200px;
     margin-left:50px;
     padding: 10px 25px;
     background-color: #ffa32b;
@@ -324,31 +324,9 @@ body{
     text-align: left;
 
 }
-.startdecorate {
-    position: absolute;
-    right:30px;
-    margin-left:50px;
-    padding: 10px 25px;
-    background-color: #ffa32b;
-    border: 2px solid transparent;
-    color: #fff;
-    font-size: 14px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 0 1px 2px #aaa;
-    transition: all 250ms ease-in-out;
-    outline: none;
-}
-
-.startdecorate:hover {
-    border: 2px solid #ffa32b;
-    background-color: #fff;
-    color: #ffa32b;
-    transform: scale(0.9);
-}
 .deleteall {
     position: absolute;
-    right: 200px;
+    right: 52px;
     padding: 10px 25px;
     background-color: #ffa32b;
     border: 2px solid transparent;
