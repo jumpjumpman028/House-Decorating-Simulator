@@ -37,7 +37,7 @@ function update() {
             
         }
     }
-    document.getElementById("summary").innerHTML = `總計金額:${totalprice}
+    document.getElementById("summary").innerHTML = `總計金額:${totalprice}NTD
     <button  class="export" id="exportButton">匯出Excel檔</button>
     <button class="deleteall" id="deleteall">刪除全部</button>
     `;
