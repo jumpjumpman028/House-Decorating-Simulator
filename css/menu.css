@@ -285,8 +285,9 @@ body{
 @media(max-width: 500px){
     .checkPPT{
         position: fixed;
-        top:500px;
+        top:0px;
         right:0px;
+        width:30px;
         font-size: 1em;
     }
     
