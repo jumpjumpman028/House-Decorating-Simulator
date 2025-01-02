@@ -55,6 +55,7 @@ function update(){
 
 
 function start(){
+  document.getElementById("result").innerHTML=` `;
     update();
     let cart = document.getElementById("cart-number");
     if (localStorage.getItem("cartnumber") !== null) {
@@ -92,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   applyButton.addEventListener("click", () => {
 
     const selectedCategory = categorySelect.value;
-      const options = categorySelect.options; // 抓取所有 <option>
+    const options = categorySelect.options; // 抓取所有 <option>
 
     const priceLowValue = parseInt(pricelow.value);
     const priceHighValue = parseInt(pricehigh.value);
